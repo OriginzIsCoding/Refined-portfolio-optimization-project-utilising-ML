@@ -87,8 +87,8 @@ for i in range(simulations):
     dailymean = np.mean(portfolioreturns)
     dailystd = np.std(portfolioreturns)
 
-    portfolioskewness[i] = np.mean((portfolioreturns - dailymean)**3) / (dailystd ** 3)
-    portfolioexcesskurtosis[i] = (np.mean((portfolioreturns - dailymean)**4) / (dailystd ** 2)**2) - 3
+    portfolioskewness[i] = np.mean((portfolioreturns - dailymean)**3) / (dailystd ** 3) #skewness is dimensionless, thus if distribution is negatively skewed at a daily level it will still be skewed at the annual level.
+    portfolioexcesskurtosis[i] = (np.mean((portfolioreturns - dailymean)**4) / (dailystd ** 2)**2) - 3 #kurtsosis is also dimensionless.
 
 
 
