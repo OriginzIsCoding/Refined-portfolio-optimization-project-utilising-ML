@@ -61,7 +61,6 @@ for ticker in tickers:
     # annualize using forecast_vol better than using average volatility from daily returns over 2 years
     predictedvolatility[ticker] = predictedvol * np.sqrt(252) 
 
-print("Predicted next-30d vols:", predictedvolatility)
 dailyreturns = adjclose.pct_change().dropna()
 meanreturn = dailyreturns.mean()
 annualisedmeanreturn = (1+meanreturn)**252 - 1
@@ -125,7 +124,7 @@ def objectivefunction(weights, covmatrix, skewnesspenalty, kurtosispenalty, dail
 
     return annualvol + skewpen + kurtosispen
 
-targetreturns = np.linspace(min(portfolioexpectedreturn), max(portfolioexpectedreturn), 100)
+targetreturns = np.linspace(min(portfolioexpectedreturn), max(portfolioexpectedreturn), 200)
 frontiervalues = []
 
 for target in targetreturns:
